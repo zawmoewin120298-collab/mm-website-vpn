@@ -3,84 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP Proxy Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>VIP PROXY - 10 Servers</title>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: sans-serif; text-align: center; padding: 20px; }
+        h2 { color: #22d3ee; margin-bottom: 20px; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; max-width: 1000px; margin: auto; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .card h3 { margin: 5px 0; font-size: 1.1rem; }
+        .card p { color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px; }
+        .btn-copy { background-color: #0891b2; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.2s; }
+        .btn-copy:active { transform: scale(0.98); }
+        .success-msg { color: #4ade80; font-size: 0.75rem; display: none; margin-top: 5px; }
+    </style>
 </head>
 <body>
+
+    <h2><💯> VIP CONFIG LIST (10 SERVERS) <💯></h2>
+
     <div class="container">
-        <div class="header">
-            <div class="logo">VIP PROXY</div>
-            <a href="https://m.me/your-profile" target="_blank" class="admin-btn">
-                <i class="fab fa-facebook-messenger"></i> Admin ဆက်သွယ်ရန်
-            </a>
+        
+        <div class="card">
+            <h3>SG-Gaming-VIP-01 🔒</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link1" value="vless://Link-1-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link1', 'm1')">📋 Copy Config 1</button>
+            <p id="m1" class="success-msg">Copied! ✅</p>
         </div>
 
-        <div class="info-grid">
-            <div class="card">
-                <div class="label">System</div>
-                <div class="value status-active">● Running</div>
-            </div>
-            <div class="card" style="border-left-color: #f6ad55;">
-                <div class="label">Type</div>
-                <div class="value">VLESS / WS</div>
-            </div>
+        <div class="card">
+            <h3>SG-Gaming-VIP-02 🔒</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link2" value="vless://Link-2-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link2', 'm2')">📋 Copy Config 2</button>
+            <p id="m2" class="success-msg">Copied! ✅</p>
         </div>
 
-        <div class="promo-bar">
-            <marquee scrollamount="5">📩 VIP Password ဝယ်ယူရန် Admin ကို ဆက်သွယ်ပါ။ Config များသည် High Speed ဖြစ်ပါသည်။</marquee>
+        <div class="card">
+            <h3>TH-Streaming-01 🇹🇭</h3>
+            <p>VLESS / WS | Port: 80</p>
+            <input type="hidden" id="link3" value="vless://Link-3-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link3', 'm3')">📋 Copy Config 3</button>
+            <p id="m3" class="success-msg">Copied! ✅</p>
         </div>
 
-        <div id="vpn-list"></div>
+        <div class="card">
+            <h3>TH-Streaming-02 🇹🇭</h3>
+            <p>VLESS / WS | Port: 80</p>
+            <input type="hidden" id="link4" value="vless://Link-4-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link4', 'm4')">📋 Copy Config 4</button>
+            <p id="m4" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>US-Fast-VIP 🇺🇸</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link5" value="vless://Link-5-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link5', 'm5')">📋 Copy Config 5</button>
+            <p id="m5" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>HK-Direct-VIP 🇭🇰</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link6" value="vless://Link-6-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link6', 'm6')">📋 Copy Config 6</button>
+            <p id="m6" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>JP-Anime-VIP 🇯🇵</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link7" value="vless://Link-7-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link7', 'm7')">📋 Copy Config 7</button>
+            <p id="m7" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>UK-Privacy-VIP 🇬🇧</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link8" value="vless://Link-8-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link8', 'm8')">📋 Copy Config 8</button>
+            <p id="m8" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>SG-LowPing-Free 🇸🇬</h3>
+            <p>VLESS / WS | Port: 80</p>
+            <input type="hidden" id="link9" value="vless://Link-9-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link9', 'm9')">📋 Copy Config 9</button>
+            <p id="m9" class="success-msg">Copied! ✅</p>
+        </div>
+
+        <div class="card">
+            <h3>Admin-Special-VIP 🌟</h3>
+            <p>VLESS / WS | Port: 443</p>
+            <input type="hidden" id="link10" value="vless://Link-10-နေရာမှာ-ထည့်ပါ">
+            <button class="btn-copy" onclick="copy('link10', 'm10')">📋 Copy Config 10</button>
+            <p id="m10" class="success-msg">Copied! ✅</p>
+        </div>
+
     </div>
 
     <script>
-        const VIP_PASSWORD = "1234";
-        const vpnData = [
-            { name: "SG-Gaming-VIP-01 🔒", flag: "th", link: "vless://91588aaa-406b-47e2-87ea-7cca72683168@vless.openzoom.indevs.in:443?path=%2Fvless&security=tls&encryption=none&insecure=1&host=vless.openzoom.indevs.in&type=ws&allowInsecure=1&sni=vless.openzoom.indevs.in#Myanmar", ping: "38ms", time: "Premium", isVip: true },
-            { name: "TH-Streaming-Free 🇹🇭", flag: "th", link: "vmess://eyJhZGQiOiJtLm1vZHphcmQuY29tIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiJ3d3ctY2xvdWRmbGFyZS5zcGVlZHRlc3QubmV0IiwiaWQiOiJmMmUxN2I0ZC0yMmZkLTQ0YTQtOTBkYi00MDY0OTcxN2JlOGUiLCJpbnNlY3VyZSI6IjAiLCJuZXQiOiJ0Y3AiLCJwYXRoIjoiLyIsInBvcnQiOiI4MDgwIiwicHMiOiJBSVMtUGxheWFhYWFhIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6Im5vbmUiLCJ0eXBlIjoiaHR0cCIsInYiOiIyIn0=", ping: "55ms", time: "Free", isVip: false }
-        ];
-
-        const container = document.getElementById('vpn-list');
-        vpnData.forEach((vpn, index) => {
-            container.innerHTML += `
-                <div class="vpn-card">
-                    <div class="card-header">
-                        <img src="https://flagcdn.com/w80/${vpn.flag}.png" class="flag">
-                        <h2 style="font-size: 1rem;">${vpn.name}</h2>
-                    </div>
-                    <button onclick="handleCopy(${index}, this)" class="btn-copy">
-                        <i class="${vpn.isVip ? 'fas fa-lock' : 'fas fa-copy'}"></i> 
-                        ${vpn.isVip ? 'Copy VIP Config' : 'Copy Free Config'}
-                    </button>
-                    <div class="card-footer">
-                        <span><i class="far fa-clock"></i> ${vpn.time}</span>
-                        <span class="ping"><i class="fas fa-bolt"></i> ${vpn.ping}</span>
-                    </div>
-                </div>`;
-        });
-
-        function handleCopy(index, btn) {
-            const vpn = vpnData[index];
-            if (vpn.isVip) {
-                const userInput = prompt("VIP Password ရိုက်ထည့်ပါ:");
-                if (userInput === VIP_PASSWORD) {
-                    executeCopy(vpn.link, btn);
-                } else if (userInput !== null) {
-                    alert("❌ Password မှားယွင်းနေပါသည်။");
-                }
-            } else {
-                executeCopy(vpn.link, btn);
-            }
-        }
-
-        function executeCopy(link, btn) {
-            navigator.clipboard.writeText(link).then(() => {
-                const oldText = btn.innerHTML;
-                btn.innerHTML = "<i class='fas fa-check'></i> Copied!";
-                setTimeout(() => { btn.innerHTML = oldText; }, 2000);
+        function copy(id, msgId) {
+            var txt = document.getElementById(id).value;
+            navigator.clipboard.writeText(txt).then(function() {
+                var m = document.getElementById(msgId);
+                m.style.display = "block";
+                setTimeout(() => { m.style.display = "none"; }, 1500);
             });
         }
     </script>
+
 </body>
 </html>
