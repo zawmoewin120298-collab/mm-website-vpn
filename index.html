@@ -26,7 +26,6 @@
 
         .container { width: 100%; max-width: 480px; }
 
-        /* Top Header */
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--cyan-accent); letter-spacing: 1px; }
         .admin-link { 
@@ -35,7 +34,6 @@
             display: flex; align-items: center; gap: 5px;
         }
 
-        /* Status Section */
         .status-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
         .status-box { 
             background: var(--card-bg); padding: 15px; border-radius: 15px; 
@@ -44,7 +42,8 @@
         .status-label { font-size: 0.7rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 5px; }
         .status-value { font-weight: bold; font-size: 1rem; }
 
-        /* 🔑 Game VIP Password Card */
+        marquee { color: var(--primary-yellow); font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
         .password-card { 
             background: var(--card-bg); border-radius: 20px; padding: 25px; 
             border: 1.5px solid var(--primary-yellow); text-align: center; margin-bottom: 25px;
@@ -65,9 +64,7 @@
             background: var(--primary-yellow); color: #000; font-weight: bold; 
             cursor: pointer; font-size: 1rem; transition: 0.2s;
         }
-        .unlock-btn:active { transform: scale(0.98); }
 
-        /* 🌐 Server List */
         .server-card { 
             background: var(--card-bg); border-radius: 18px; padding: 20px; 
             margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); position: relative;
@@ -85,7 +82,6 @@
             background: #21262d; color: #484f58; font-weight: bold; cursor: not-allowed; 
             display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s;
         }
-        /* VIP အောင်မြင်ချိန်တွင် ပြောင်းမည့် Button Style */
         .copy-btn.active { 
             background: #0097b2; color: #ffffff; cursor: pointer; 
             box-shadow: 0 4px 12px rgba(0, 151, 178, 0.3); 
@@ -99,7 +95,7 @@
     <div class="container">
         <div class="header">
             <div class="logo">VIP PROXY</div>
-            <a href="https://m.me/vpnconfigvip" class="https://m.me/vpnconfigvip">💶 VIP ဆက်သွယ်ရန်</a>
+            <a href="https://m.me/vpnconfigvip" class="admin-link">💶 VIP ဆက်သွယ်ရန်</a>
         </div>
 
         <div class="status-row">
@@ -112,7 +108,9 @@
                 <div class="status-value">Premium</div>
             </div>
         </div>
-        <marquee>💶VIP password 🔑 admin</marquee>
+
+        <marquee>💶 VIP Password ဝယ်ယူရန် Admin ကို ဆက်သွယ်ပါ 🔑</marquee>
+
         <div class="password-card">
             <h2>Game VIP Password 🔑</h2>
             <p>Enter password to see VIP servers</p>
@@ -126,7 +124,7 @@
                 <span class="lock-tag" id="tag1">🔒 Locked</span>
                 <h3>SG-Gaming-VIP-01 🇸🇬</h3>
                 <div class="sub-text">VLESS / WS | Port: 443</div>
-                <input type="hidden" id="link1" value="vless://91588aaa-406b-47e2-87ea-7cca72683168@yourdomain.com:443?path=%2Fvless&security=tls&encryption=none&type=ws&sni=yourdomain.com#SG-VIP-01">
+                <input type="hidden" id="link1" value="ဒီနေရာမှာ_Server1_ရဲ့_Link_အစစ်ကိုထည့်ပါ">
                 <button class="copy-btn" id="btn1" onclick="copyConfig('link1')">📋 Copy VIP Config 1</button>
             </div>
 
@@ -134,27 +132,31 @@
                 <span class="lock-tag" id="tag2">🔒 Locked</span>
                 <h3>TH-Streaming-01 🇹🇭</h3>
                 <div class="sub-text">VLESS / TLS | Port: 443</div>
-                <input type="hidden" id="link2" value="vless://91588aaa-406b-47e2-87ea-7cca72683168@yourdomain.com:443?security=tls&encryption=none&sni=yourdomain.com#TH-VIP-01">
+                <input type="hidden" id="link2" value="ဒီနေရာမှာ_Server2_ရဲ့_Link_အစစ်ကိုထည့်ပါ">
                 <button class="copy-btn" id="btn2" onclick="copyConfig('link2')">📋 Copy VIP Config 2</button>
             </div>
-            <div class="server-card">
-    <span class="lock-tag" id="tag3">🔒 Locked</span> <h3>SG-Gaming-VIP-03 🇸🇬</h3>
-    <div class="sub-text">VLESS / WS | Port: 443</div>
-    <input type="hidden" id="link3" value="vless://3712c996-5554-475d-c651-76fc73c8e914@openzoom.indevs.in:443?path=%2Fzawmoewin&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=1&host=openzoom.indevs.in&type=ws&allowInsecure=1&sni=www.speedtest.net#TRUE-AIS.pubg%20speed"> <button class="copy-btn" id="btn3" onclick="copyConfig('link3')">📋 Copy VIP Config 3</button> </div>
 
-<div class="server-card">
-    <span class="lock-tag" id="tag4">🔒 Locked</span>
-    <h3>TH-ဖိုင်းမတက်ရသေးပါ 🇹🇭</h3>
-    <div class="sub-text">VLESS / TLS | Port: 443</div>
-    <input type="hidden" id="link4" value="ဒီနေရာမှာ Config အသစ်ထည့်ပါ">
-    <button class="copy-btn" id="btn4" onclick="copyConfig('link4')">📋 Copy VIP Config 4</button>
-</div>     
-        
+            <div class="server-card">
+                <span class="lock-tag" id="tag3">🔒 Locked</span> 
+                <h3>SG-Gaming-VIP-03 🇸🇬</h3>
+                <div class="sub-text">VLESS / WS | Port: 443</div>
+                <input type="hidden" id="link3" value="vless://3712c996-5554-475d-c651-76fc73c8e914@openzoom.indevs.in:443?path=%2Fzawmoewin&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=1&host=openzoom.indevs.in&type=ws&allowInsecure=1&sni=www.speedtest.net#TRUE-AIS.pubg%20speed"> 
+                <button class="copy-btn" id="btn3" onclick="copyConfig('link3')">📋 Copy VIP Config 3</button> 
+            </div>
+
+            <div class="server-card">
+                <span class="lock-tag" id="tag4">🔒 Locked</span>
+                <h3>TH-Gaming-Premium 🇹🇭</h3>
+                <div class="sub-text">VLESS / TLS | Port: 443</div>
+                <input type="hidden" id="link4" value="ဒီနေရာမှာ_Server4_ရဲ့_Link_အစစ်ကိုထည့်ပါ">
+                <button class="copy-btn" id="btn4" onclick="copyConfig('link4')">📋 Copy VIP Config 4</button>
+            </div>     
+        </div>
     </div>
 
     <script>
         var isVIP = false;
-        var masterPassword = "zawmoewin2026"; // 🔑 ဒီနေရာမှာ အစ်ကိုပေးချင်တဲ့ Password ပြောင်းပါ
+        var masterPassword = "zawmoewin2026"; 
 
         function verifyAccess() {
             var input = document.getElementById("passInput").value;
@@ -166,7 +168,6 @@
                 msg.innerText = "VIP Unlocked! ✅ Copy Access Granted.";
                 msg.style.display = "block";
                 
-                // Unlock UI Elements
                 document.querySelectorAll('.copy-btn').forEach(btn => btn.classList.add('active'));
                 document.querySelectorAll('.lock-tag').forEach(tag => {
                     tag.innerText = "✅ Unlocked";
@@ -183,10 +184,14 @@
 
         function copyConfig(id) {
             if (!isVIP) {
-                alert("ကျေးဇူးပြု၍ VIP Password ကို အရင်ရိုက်ထည့်ပါ! 🔒"); //
+                alert("ကျေးဇူးပြု၍ VIP Password ကို အရင်ရိုက်ထည့်ပါ! 🔒");
                 return;
             }
             var text = document.getElementById(id).value;
+            if (text.includes("ဒီနေရာမှာ")) {
+                alert("သတိပေးချက်- အစ်ကို့ရဲ့ Link အစစ်ကို ကုဒ်ထဲမှာ မထည့်ရသေးပါဘူး! ⚠️");
+                return;
+            }
             navigator.clipboard.writeText(text);
             alert("VIP Config Copied! ✅");
         }
