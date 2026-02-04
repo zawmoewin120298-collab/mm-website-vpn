@@ -10,7 +10,7 @@
       },
       "streamSettings": {
         "network": "ws",
-        "wsSettings": { "path": "/vless" }
+        "wsSettings": { "path": "/zawmoewin" }
       }
     }
   ],
