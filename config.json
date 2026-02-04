@@ -4,7 +4,7 @@
       "port": 7860,
       "protocol": "vless",
       "settings": {
-        "clients": [{ "id": "f525e7b1-e7c4-449c-9dcb-a8a7c5b7a8ab" }],
+        "clients": [{ "id": "a0021665-e5db-4aff-8722-68fb98e403ba" }],
         "decryption": "none",
         "fallbacks": [{ "dest": 8081 }] 
       },
