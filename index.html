@@ -65,7 +65,6 @@
         }
         .copy-btn:hover { opacity: 0.9; }
 
-        /* CDN Sections Styling */
         .cdn-card {
             background: var(--card-bg); border-radius: 18px; padding: 18px; 
             margin-top: 15px; border: 1px solid rgba(255,255,255,0.05);
@@ -111,23 +110,13 @@
                 <span class="unlock-tag">✅ Unlocked</span>
                 <h3>TH-💯-01 🇹🇭</h3>
                 <div class="sub-text">VLESS / TLS | Port: 443</div>
-                <input type="hidden" id="link2" value="vless://d342d11e-d424-4583-b36e-524ab1f0afa4@www.speedtest.net:443?path=%2F%3Fed%3D2048&security=tls&encryption=none&insecure=1&host=a.openzoom.indevs.in&fp=randomized&type=ws&allowInsecure=1&sni=a.openzoom.indevs.in#TH-VIP-2">
+                <input type="hidden" id="link2" value="vless://d342d11e-d424-4583-b36e-524ab1f0afa4@mm-th.openzoom.indevs.in:443?path=%2F%3Fed%3D2048&security=tls&encryption=none&insecure=1&host=a.openzoom.indevs.in&fp=randomized&type=ws&allowInsecure=1&sni=a.openzoom.indevs.in#TH-VIP-2">
                 <button class="copy-btn" onclick="copyConfig('link2')">📋 Copy VIP Config 2</button>
-            </div>
-
-            <div class="server-card">
-                <span class="unlock-tag">✅ Unlocked</span>
-                <h3>SG-Gaming-VIP-02 🇸🇬</h3>
-                <div class="sub-text">VLESS / WS | Port: 443</div>
-                <input type="hidden" id="link3" value="vless://YOUR_NEW_CONFIG_LINK_HERE">
-                <button class="copy-btn" onclick="copyConfig('link3')">📋 Copy VIP Config 3</button>
             </div>
         </div>
 
         <div class="cdn-card" style="border: 1.5px solid var(--primary-red);">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <h3 style="color: var(--primary-red); margin: 0; font-size: 1rem; letter-spacing: 0.5px;"> အင်တာနက်</h3>
-            </div>
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--primary-red); font-size: 1rem;">NETWORK</h3></div>
             <div class="cdn-stats">
                 <div class="stat-item"><div class="stat-label">Uptime</div><div class="stat-val">99.9%</div></div>
                 <div class="stat-item"><div class="stat-label">Latency</div><div class="stat-val">&lt; 20ms</div></div>
@@ -135,10 +124,8 @@
             </div>
         </div>
 
-        <div class="cdn-card" style="border: 1.5px solid var(--ibm-blue); background: rgba(15, 98, 254, 0.05);">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <h3 style="color: var(--ibm-blue); margin: 0; font-size: 1rem; letter-spacing: 0.5px;">CLOUD CDN</h3>
-            </div>
+        <div class="cdn-card" style="border: 1.5px solid var(--ibm-blue);">
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--ibm-blue); font-size: 1rem;">CDN</h3></div>
             <div class="cdn-stats">
                 <div class="stat-item"><div class="stat-label">Security</div><div class="stat-val">WAF+</div></div>
                 <div class="stat-item"><div class="stat-label">Edge</div><div class="stat-val">Anycast</div></div>
@@ -146,26 +133,29 @@
             </div>
         </div>
 
-        <div class="cdn-card" style="border: 1.5px solid var(--unpkg-orange); background: rgba(255, 140, 0, 0.05);">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <h3 style="color: var(--unpkg-orange); margin: 0; font-size: 1rem; letter-spacing: 0.5px;">ကျနော်ဝက်ဆိုက့်</h3>
-            </div>
+        <div class="cdn-card" style="border: 1.5px solid var(--unpkg-orange);">
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--unpkg-orange); font-size: 1rem;">ကျနော်website</h3></div>
             <div class="cdn-stats">
                 <div class="stat-item"><div class="stat-label">Network</div><div class="stat-val">Cloudflare</div></div>
                 <div class="stat-item"><div class="stat-label">Cache</div><div class="stat-val">Global</div></div>
                 <div class="stat-item"><div class="stat-label">Status</div><div class="stat-val">Active</div></div>
             </div>
         </div>
-        
     </div>
 
     <script>
         function copyConfig(id) {
-            var text = document.getElementById(id).value;
+            let text = document.getElementById(id).value;
+            
+            // mm-th domain ကို တွေ့လျှင် speedtest bug အဖြစ် အလိုအလျောက် ပြောင်းပေးမည်
+            if(text.includes("mm-th.openzoom.indevs.in")) {
+                text = text.replace("mm-th.openzoom.indevs.in", "www.speedtest.net");
+            }
+
             navigator.clipboard.writeText(text).then(function() {
                 alert("VIP Config Copied! ✅");
             }, function(err) {
-                alert("Error: Copy လုပ်မရပါဘူးဗျာ။");
+                alert("Error: Copy လုပ်မရပါဘူး။");
             });
         }
     </script>
