@@ -9,7 +9,7 @@
         "fallbacks": [{ "dest": 8081 }] 
       },
       "streamSettings": {
-        "network": "tcp",
+        "network": "ws",
         "wsSettings": { "path": "/zawmoewin" }
       }
     }
