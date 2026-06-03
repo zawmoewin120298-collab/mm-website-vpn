@@ -1,18 +1,16 @@
 {
-  "inbounds": [
-    {
-      "port": 8080,
-      "protocol": "vless",
-      "settings": {
-        "clients": [{ "id": "f2e17b4d-22fd-44a4-90db-40649717be8e" }],
-        "decryption": "none",
-        "fallbacks": [{ "dest": 8081 }] 
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": { "path": "/zawmoewin" }
-      }
-    }
-  ],
-  "outbounds": [{ "protocol": "freedom" }]
+  "v": "2",
+  "ps": "True_Online_Free",
+  "add": "aisth.bigccoth.indevs.in",
+  "port": "443",
+  "id": "91588aaa-406b-47e2-87ea-7cca72683168",
+  "aid": "0",
+  "scy": "none",
+  "net": "ws",
+  "type": "none",
+  "host": "aisth.bigccoth.indevs.in",
+  "path": "/vless",
+  "tls": "tls",
+  "sni": "www.speedtest.net", 
+  "alpn": ""
 }
