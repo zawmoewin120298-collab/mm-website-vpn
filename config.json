@@ -18,10 +18,7 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/vless",
-          "headers": {
-            "Host": "aisth.bigccoth.indevs.in"
-          }
+          "path": "/vless"
         }
       }
     }
