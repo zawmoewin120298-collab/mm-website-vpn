@@ -1,4 +1,7 @@
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
       "port": 8080,
@@ -6,7 +9,8 @@
       "settings": {
         "clients": [
           {
-            "id": "91588aaa-406b-47e2-87ea-7cca72683168"
+            "id": "91588aaa-406b-47e2-87ea-7cca72683168",
+            "level": 0
           }
         ],
         "decryption": "none"
@@ -14,7 +18,10 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/vless"
+          "path": "/vless",
+          "headers": {
+            "Host": "aisth.bigccoth.indevs.in"
+          }
         }
       }
     }
