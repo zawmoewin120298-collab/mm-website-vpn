@@ -17,7 +17,7 @@
     "inbounds": [
         {
             "listen": "127.0.0.1",
-            "port": "1080",
+            "port": 1080,
             "protocol": "socks",
             "settings": {
                 "auth": "noauth",
@@ -27,7 +27,7 @@
         },
         {
             "listen": "127.0.0.1",
-            "port": "1081",
+            "port": 1081,
             "protocol": "http"
         }
     ],
@@ -41,7 +41,10 @@
                         "port": 8080,
                         "users": [
                             {
-                                "id": "1c8dbf23-b335-4876-a3ac-9c1f2b1e53dd"
+                                "id": "1c8dbf23-b335-4876-a3ac-9c1f2b1e53dd",
+                                "alterId": 0,
+                                "security": "auto",
+                                "level": 0
                             }
                         ]
                     }
@@ -62,9 +65,9 @@
                                 "Host": [
                                     "www.bing.com",
                                     "www.cloudflare.com",
-                                    "www.amazon.com"
-                                    "www.true.th"
-                                    "app.dtac.co.th"
+                                    "www.amazon.com",
+                                    "www.true.th",
+                                    "app.dtac.co.th",
                                     "ais.co.th"
                                 ],
                                 "User-Agent": [
