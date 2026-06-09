@@ -11,13 +11,15 @@ if [ -f /etc/v2ray/config.json ]; then
 fi
 
 echo "🚀 Starting V2Ray Core on Port: $PORT..."
-
 # V2Ray Core အား နောက်ကွယ်မှ စတင်မောင်းနှင်ခြင်း
 /usr/bin/v2ray run -c /etc/v2ray/config.json &
 
-# ဆရာကြီးရဲ့ Cloudflare Tunnel Token အား အသေထိန်းမောင်းပေးခြင်း
-echo "🛡️ Starting Cloudflare Tunnel..."
-/usr/local/bin/cloudflared tunnel --no-autoupdate run --token 
-
-# အားလုံးကို ထိန်းထားခြင်း
-wait -n
+# Railway Variables ထဲက TUNNEL_TOKEN ကို ဖတ်ပြီး မောင်းနှင်ခြင်း
+if [ ! -z "$TUNNEL_TOKEN" ]; then
+  echo "🛡️ Starting Cloudflare Tunnel using Railway Variable..."
+  /usr/local/bin/cloudflared tunnel --no-autoupdate run --token "$TUNNEL_TOKEN"
+else
+  echo "💡 No TUNNEL_TOKEN provided in Railway, running V2Ray standalone."
+  # Tunnel Token မပါခဲ့ရင်လည်း Container ကြီး မပိတ်သွားအောင် ထိန်းထားခြင်း
+  wait -n
+fi
