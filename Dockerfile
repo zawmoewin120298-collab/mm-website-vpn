@@ -1,19 +1,24 @@
 FROM alpine:latest
 
-RUN apk add --no-cache wget unzip ca-certificates
+# လိုအပ်သော Tools များနှင့် ca-certificates သွင်းခြင်း
+RUN apk add --no-cache wget unzip ca-certificates bash
 
-# V2Ray တင်ခြင်း
+# V2Ray Core စစ်စစ်ကို ဒေါင်းလုဒ်ဆွဲပြီး /usr/bin ထဲ ထည့်ခြင်း
 RUN wget https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip && \
-    unzip v2ray-linux-64.zip && \
-    chmod +x v2ray && \
+    unzip v2ray-linux-64.zip -d /usr/bin/ && \
+    chmod +x /usr/bin/v2ray && \
     rm v2ray-linux-64.zip
 
-# Cloudflared တင်ခြင်း
+# Cloudflared (Tunnel) ကို ဒေါင်းလုဒ်ဆွဲခြင်း
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared && \
     chmod +x /usr/local/bin/cloudflared
 
+# V2Ray အတွက် နေရာဆောက်ပြီး Config ကူးထည့်ခြင်း
+RUN mkdir -p /etc/v2ray
 COPY config.json /etc/v2ray/config.json
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# wap tunnel ရဲ့ token ကို ဒီမှာ အစားထိုးပါ
-CMD ./v2ray run -c /etc/v2ray/config.json & cloudflared tunnel --no-autoupdate run --token eyJhIjoiNTBlNjY3NDA4YTBjMWQ1MmVmNTBhZmIyNGViNmViOGEiLCJ0IjoiODY2MGQ5ZWUtODU0YS00NzY5LWIzYjktN2M3ZmY1ODhiZWQ0IiwicyI6Ik5EUTBOV1JqWm1FdFkySmlOaTAwTW1NeUxUZ3dZV0l0WmpobU5UZGlOV0l5TkRZeiJ9
+EXPOSE 8080
 
+ENTRYPOINT ["/entrypoint.sh"]
