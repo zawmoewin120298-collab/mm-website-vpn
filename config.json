@@ -7,9 +7,7 @@
         "rules": [
             {
                 "type": "field",
-                "ip": [
-                    "geoip:private"
-                ],
+                "ip": ["geoip:private"],
                 "outboundTag": "direct"
             }
         ]
@@ -24,16 +22,11 @@
                 "udp": true,
                 "ip": "127.0.0.1"
             }
-        },
-        {
-            "listen": "127.0.0.1",
-            "port": 1081,
-            "protocol": "http"
         }
     ],
     "outbounds": [
         {
-            "protocol": "vmess",
+            "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
@@ -41,9 +34,8 @@
                         "port": 80,
                         "users": [
                             {
-                                "id": "f2e17b4d-22fd-44a4-90db-40649717be8e",
-                                "alterId": 0,
-                                "security": "auto",
+                                "id": "363bf3d5-e585-4cac-adec-1bbf02971da5",
+                                "encryption": "none",
                                 "level": 0
                             }
                         ]
@@ -53,7 +45,7 @@
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": "/vless",
+                    "path": "/www.speedtest.net",
                     "headers": {
                         "Host": "www.true.th"
                     }
