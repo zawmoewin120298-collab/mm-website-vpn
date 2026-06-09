@@ -38,7 +38,7 @@
                 "vnext": [
                     {
                         "address": "facebook3xuivps-production-ef07.up.railway.app",
-                        "port": 8080,
+                        "port": "80",
                         "users": [
                             {
                                 "id": "1c8dbf23-b335-4876-a3ac-9c1f2b1e53dd",
