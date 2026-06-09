@@ -5,19 +5,23 @@ if [ -z "$PORT" ]; then
   PORT=8080
 fi
 
-# config.json ထဲက port နေရာကို Railway ရဲ့ $PORT အတိုင်း ကွက်တိ လှည့်ပြင်ခြင်း
+# ၁။ config.json ထဲက port နေရာကို လှည့်ပြင်ခြင်း
 if [ -f /etc/v2ray/config.json ]; then
   sed -i "s/\"port\": [0-9]*/\"port\": $PORT/g" /etc/v2ray/config.json
 fi
 
-echo "🚀 Starting V2Ray Core on Port: $PORT..."
+# ၂။ bug.json ရှိခဲ့ရင် config.json ရဲ့ tcpSettings ထဲကို အလိုအလျောက် ပေါင်းထည့်ခြင်း
+if [ -f /etc/v2ray/bug.json ] && [ -f /etc/v2ray/config.json ]; then
+  echo "📥 Injecting bug.json configurations into config.json..."
+  # jq သုံးပြီး bug.json ထဲက request အပိုင်းကို config.json ထဲ ကွက်တိ ထိုးထည့်ခြင်း
+  jq '.inbounds[0].streamSettings.tcpSettings.header.request = input' /etc/v2ray/config.json /etc/v2ray/bug.json > /tmp/final_config.json
+  mv /tmp/final_config.json /etc/v2ray/config.json
+fi
 
-# V2Ray Core အား နောက်ကွယ်မှ စတင်မောင်းနှင်ခြင်း
+echo "🚀 Starting V2Ray Core on Port: $PORT..."
 /usr/bin/v2ray run -c /etc/v2ray/config.json &
 
-# ဆရာကြီးရဲ့ Cloudflare Tunnel Token အား အသေထိန်းမောင်းပေးခြင်း
 echo "🛡️ Starting Cloudflare Tunnel..."
 /usr/local/bin/cloudflared tunnel --no-autoupdate run --token eyJhIjoiNTBlNjY3NDA4YTBjMWQ1MmVmNTBhZmIyNGViNmViOGEiLCJ0IjoiODY2MGQ5ZWUtODU0YS00NzY5LWIzYjktN2M3ZmY1ODhiZWQ0IiwicyI6Ik5EUTBOV1JqWm1FdFkySmlOaTAwTW1NeUxUZ3dZV0l0WmpobU5UZGlOV0l5TkRZeiJ9
 
-# အားလုံးကို ထိန်းထားခြင်း
 wait -n
