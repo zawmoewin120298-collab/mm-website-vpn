@@ -1,15 +1,64 @@
 {
-  "inbounds": [{
-    "port": 8080,
-    "protocol": "vless",
-    "settings": {
-      "clients": [{"id": "b31015d2-9647-412b-8996-134a9c212f27"}],
-      "decryption": "none"
+    "log": {
+        "loglevel": "warning"
     },
-    "streamSettings": {
-      "network": "ws",
-      "wsSettings": {"path": "/www.speedtest.net"}
-    }
-  }],
-  "outbounds": [{"protocol": "freedom"}]
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "direct"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 1080,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "ip": "127.0.0.1"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "facebook3xuivps-production-9bbe.up.railway.app",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "b31015d2-9647-412b-8996-134a9c212f27",
+                                "encryption": "none",
+                                "level": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/www.speedtest.net"
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "facebook3xuivps-production-9bbe.up.railway.app"
+                }
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
 }
