@@ -1,25 +1,19 @@
 FROM alpine:latest
 
-# လိုအပ်သော Tools များနှင့် cloudflared ကို သွင်းခြင်း
-RUN apk add --no-cache curl libc6-compat bash jq unzip
+RUN apk add --no-cache wget unzip ca-certificates
 
-# Xray Core ကို ဒေါင်းလုဒ်ဆွဲပြီး သွင်းခြင်း
-RUN curl -L -o xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip \
-    && unzip xray.zip -d /usr/bin/ \
-    && chmod +x /usr/bin/xray \
-    && rm -f xray.zip
+# V2Ray တင်ခြင်း
+RUN wget https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip && \
+    unzip v2ray-linux-64.zip && \
+    chmod +x v2ray && \
+    rm v2ray-linux-64.zip
 
-# Cloudflare Tunnel Client ကို သွင်းခြင်း
-RUN curl -L --output /usr/local/bin/cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && \
+# Cloudflared တင်ခြင်း
+RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared && \
     chmod +x /usr/local/bin/cloudflared
 
-RUN mkdir -p /etc/xray
+COPY config.json /etc/v2ray/config.json
 
-COPY config.json /etc/xray/config.json
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-EXPOSE 8080
-
-ENTRYPOINT ["/entrypoint.sh"]
+# wap tunnel ရဲ့ token ကို ဒီမှာ အစားထိုးပါ
+CMD ./v2ray run -c /etc/v2ray/config.json & cloudflared tunnel --no-autoupdate run --token eyJhIjoiNTBlNjY3NDA4YTBjMWQ1MmVmNTBhZmIyNGViNmViOGEiLCJ0IjoiODY2MGQ5ZWUtODU0YS00NzY5LWIzYjktN2M3ZmY1ODhiZWQ0IiwicyI6Ik5EUTBOV1JqWm1FdFkySmlOaTAwTW1NeUxUZ3dZV0l0WmpobU5UZGlOV0l5TkRZeiJ9
 
