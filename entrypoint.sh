@@ -12,15 +12,6 @@ fi
 
 echo "🚀 Starting Xray Core on Port: $PORT..."
 
-# Xray Core အား နောက်ကွယ်မှ စတင်မောင်းနှင်ခြင်း
-/usr/bin/xray -config /etc/xray/config.json &
-
-# 🛡️ တကယ်လို့ ဆရာက Cloudflare Tunnel သုံးဖို့ Variable ထည့်ခဲ့ရင် ၎င်းကိုပါ တွဲမောင်းပေးခြင်း
-if [ ! -z "$TUNNEL_TOKEN" ]; then
-  echo "🛡️ Starting Cloudflare Tunnel..."
-  /usr/local/bin/cloudflared tunnel --no-autoupdate run --token "$TUNNEL_TOKEN"
-else
-  echo "💡 No TUNNEL_TOKEN provided, running Xray standalone."
-  # Tunnel Token မပါရင် Containerကြီး မပိတ်သွားအောင် ရှေ့တန်းမှာ ထိန်းထားခိုင်းခြင်း
-  wait -n
-fi
+# Xray Core ကို နောက်ကွယ်မှ မဟုတ်ဘဲ ရှေ့တန်း (Foreground) မှာ တိုက်ရိုက် မောင်းနှင်ခြင်း
+# (ဒါမှ Container ကြီး အလုပ်လုပ်နေပြီး လုံးဝ သေမသွားမှာ ဖြစ်ပါတယ်)
+/usr/bin/xray run -c /etc/xray/config.json
