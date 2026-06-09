@@ -7,7 +7,9 @@
         "rules": [
             {
                 "type": "field",
-                "ip": ["geoip:private"],
+                "ip": [
+                    "geoip:private"
+                ],
                 "outboundTag": "direct"
             }
         ]
@@ -30,8 +32,8 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "trueth.kdns.fr",
-                        "port": 80,
+                        "address": "trueth-aiscoth.up.railway.app",
+                        "port": 443,
                         "users": [
                             {
                                 "id": "363bf3d5-e585-4cac-adec-1bbf02971da5",
@@ -47,10 +49,14 @@
                 "wsSettings": {
                     "path": "/www.speedtest.net",
                     "headers": {
-                        "Host": "www.true.th"
+                        "Host": "ais.co.th"
                     }
                 },
-                "security": "none"
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "trueth-aiscoth.up.railway.app",
+                    "allowInsecure": false
+                }
             },
             "tag": "proxy"
         },
