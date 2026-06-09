@@ -53,7 +53,7 @@
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": "/",
+                    "path": "/vless",
                     "headers": {
                         "Host": "www.true.th"
                     }
