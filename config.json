@@ -54,8 +54,8 @@
                 },
                 "security": "tls",
                 "tlsSettings": {
-                    "serverName": "trueth-aiscoth.up.railway.app",
-                    "allowInsecure": false
+                    "serverName": "ais.co.th",
+                    "allowInsecure": true
                 }
             },
             "tag": "proxy"
@@ -66,3 +66,4 @@
         }
     ]
 }
+
